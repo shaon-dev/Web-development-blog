@@ -1,11 +1,11 @@
 <?php include "inc/header.php"  ?>
 
 <?php include "inc/slider.php"  ?>
-<?php include "config/config.php"  ?>
-<?php include "lib/Database.php"  ?>
+
 
 <?php
  $db = new Database();
+ $fm = new format();
 
 
 
@@ -34,18 +34,19 @@ if($post){
 
 ?>
 			<div class="samepost clear">
-				<h2><a href="post.php?id=<?php echo $result ['id']?>"><?php echo $result ['title']?></a></h2>
+				<h2><a href="post.php?id= <?php echo $result ['id']?>"><?php echo $result ['title']?></a></h2>
 				<h4><?php echo $result ['time']?> <a href="#"><?php echo $result ['author']?></a></h4>
-				 <a href="#"><img src="images/post1.jpg" alt="post image"/></a>
+				 <a href="post.php?id=<?php echo $result ['id']?>"><img src="images/post1.jpg" alt="post image"/></a>
 				<p>
-                    <?php echo $result ['body']?>
+                    <?php echo  $fm->textShort($result ['body'])?>
                 </p>
 				<div class="readmore clear">
                     <a href="post.php?id=<?php echo $result ['id']?>">Read More</a>
 				</div>
 			</div>
-<?php }?><!--end while loop-->
-	<?php }else {}?>
+     <?php }?><!--end while loop-->
+
+     <?php }else {}?>
 
 		</div>
 
