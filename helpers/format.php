@@ -9,11 +9,11 @@
 
     }
 
-    public function textShort($text, $limit = 200){
+    public function textShort($text, $limit = 400){
              $text=$text . "";
              $text=substr($text,0, $limit);
-        $text=substr($text,0, strrpos($text, ''));
-        $text=$text . "...";
+             $text=substr($text,0, strrpos($text, ''));
+             $text=$text . "...";
         return $text;
 
 
